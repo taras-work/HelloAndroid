@@ -30,8 +30,13 @@ jobs:
           java-version: '17'
           cache: 'gradle'
 
+       
+
       - name: Change wrapper permissions
         run: chmod +x ./gradlew
+
+      - name: Generate gradle
+        run: gradle wrapper --gradle-version 7.5
 
         # Run Build Project
       - name: Build gradle project
