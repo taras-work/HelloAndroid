@@ -2,6 +2,10 @@
 
 name: CI
 
+env:
+  # The name of the main module repository
+  main_project_module: app
+
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
@@ -41,5 +45,13 @@ jobs:
         # Run Build Project
       - name: Build gradle project
         run: ./gradlew assembleDebug
+
+        # Upload Artifact Build
+      # Noted For Output [main_project_module]/build/outputs/apk/debug/
+      - name: Upload APK Debug test app
+        uses: actions/upload-artifact@v3
+        with:
+          name: Test app
+          path: ${{ env.main_project_module }}/build/outputs/bundle/debug/
 
     
