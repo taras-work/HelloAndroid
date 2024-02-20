@@ -52,6 +52,6 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: Test app
-          path: ${{ env.main_project_module }}/build/outputs/bundle/debug/
+          path: ${{ env.main_project_module }}/build/outputs/apk/debug/
 
     
